@@ -604,8 +604,9 @@ If Apple: cut speaker wires to eliminate chime ad, cut keyboard backlight cable,
  8. No system() calls in big tools.
  9. Everything under the Unlicense.
 10. Everything minimalist.
-11. Type-casting: (type)var;
-12. Check failure for file i/o:
+11. Type-casting: (type)var.
+12. Never use cin.getline.
+13. Check failure for file i/o:
 
 in_stream.open("file"); if(!in_stream) {std::cout << "\nCan't open file for reading. (Say for what here).\n"; return 1;}
 out_stream.open("file"); if(!out_stream) {std::cout << "\nCan't open file for writing. (Say for what here).\n"; return 1;}
