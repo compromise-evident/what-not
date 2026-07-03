@@ -16,7 +16,7 @@ int main()
 	//Gets path.
 	std::cout << "\nDrop/enter file:\n";
 	std::string path; std::getline(std::cin, path);
-	if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
+	if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //If drag-n-dropped.
 	if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 	
 	//Checks if file is empty.
