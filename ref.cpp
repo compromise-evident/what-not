@@ -8,8 +8,7 @@ resources; it should be the first tab in your editor.*/
 #include <iostream>
 #include <string>
 int main()
-{	int raw_byte;
-	char file_byte;
+{	char file_byte;
 	std::ifstream in_stream;
 	std::ofstream out_stream;
 	
@@ -25,7 +24,7 @@ int main()
 	in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Gets byte occurrence).\n"; return 1;}
 	unsigned long long byte_occur[256] = {0};
 	for(; in_stream.get(file_byte);)
-	{	raw_byte = file_byte & 0xFF;
+	{	int raw_byte = file_byte & 0xFF;
 		byte_occur[raw_byte]++;
 	}
 	in_stream.close();
@@ -51,7 +50,7 @@ int main()
 	in_stream.open(path);                       if( !in_stream) {std::cout << "\nCan't open file for reading. (Appends every byte raw).\n"; return 1;}
 	out_stream.open("analysis", std::ios::app); if(!out_stream) {std::cout << "\nCan't open file for writing. (Appends every byte raw).\n"; return 1;}
 	out_stream << "\nEvery byte raw:\n";
-	for(; in_stream.get(file_byte);) {raw_byte = file_byte & 0xFF; out_stream << raw_byte << "\n";}
+	for(; in_stream.get(file_byte);) {int raw_byte = file_byte & 0xFF; out_stream << raw_byte << "\n";}
 	in_stream.close();
 	out_stream.close();
 	
