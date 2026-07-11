@@ -2,7 +2,9 @@
 file and back. The file will be as big as your folder.
 
 If you want to open and look at that archive file,
-just archive a folder with folders & text files.*/
+just archive a folder containing folders & text files.
+Otherwise create an analysis file of that archive file using:
+https://github.com/compromise-evident/what-not/blob/main/ref.cpp */
 
 #include <algorithm>
 #include <filesystem>
@@ -17,19 +19,16 @@ int main()
 	
 	std::cout << "\n(1) Create archive"
 	          << "\n(2) Unpack archive"
-	
 	          << "\n\nOption: ";
+	std::string o; std::getline(std::cin, o); if((o != "1") && (o != "2")) {std::cout << "\nBad option.\n"; return 0;}
 	
-	int user_option; std::cin >> user_option;
-	if((user_option != 1) && (user_option != 2)) {std::cout << "\nInvalid.\n"; return 1;}
-	
-	//Create archive.___________________________________________________________________________________________________________________
-	if(user_option == 1)
+	//Create archive.
+	//WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+	if(o == "1")
 	{	//Gets path.
 		std::cout << "\nDrop/enter folder:\n";
-		std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
-		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
-		in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+		std::string path; std::getline(std::cin, path); if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
+		if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 		
 		//Gets list of ALL files & folders from a folder.
 		std::vector <std::string>   file_list;
@@ -67,19 +66,19 @@ int main()
 		out_stream.close();
 	}
 	
-	//Unpack archive.___________________________________________________________________________________________________________________
-	if(user_option == 2)
+	//Unpack archive.
+	//WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+	if(o == "2")
 	{	//Gets path.
 		std::cout << "\nDrop/enter archive file:\n";
-		std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
-		if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
-		in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+		std::string path; std::getline(std::cin, path); if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
+		if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 		
 		//Creates empty folder "unpacked".
 		std::filesystem::remove_all("unpacked"); std::filesystem::create_directories("unpacked");
 		
 		//Exits if empty archive.
-		unsigned long long size = std::filesystem::file_size(path); if(size == 0) {return 0;}
+		if(std::filesystem::file_size(path) == 0) {return 0;}
 		
 		//Unpacks.
 		in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Unpacks).\n"; return 1;}
