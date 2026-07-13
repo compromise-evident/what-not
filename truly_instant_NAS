@@ -2,11 +2,11 @@ Create NAS by pasting 2 commands to Startup Applications. Runs in background. Dr
 Public folder, it'll be saved by your NAS--another normal computer with a normal OS. No systemd.
 
 * YOUR COMPUTER:
-  Paste this command to Startup apps then restart:
+  Paste this command to startup apps then restart:
   sh -c "python3 -m http.server 8000 -d ~/Public"
 
 * NAS COMPUTER:
-  Paste this command to startup applications, replace "hostname" with the hostname of YOUR computer, then restart:
+  Paste this command to startup apps, replace "hostname" with the hostname of YOUR computer, then restart:
   sh -c "while :; do sleep 10; wget -m -np -N -R 'index.html*' hostname.local:8000/; done"
 
 
