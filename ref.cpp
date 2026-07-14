@@ -424,17 +424,17 @@ ________________________________________________________________________________
 
 SEARCH A FOLDER:                       grep -rlF 'the word' /path
 
-GET FILE SIZE IN BYTES:                long long size = std::filesystem::file_size(path);          Needs #include <filesystem>
+GET FILE SIZE IN BYTES:                unsigned long long size = std::filesystem::file_size(path);    Needs #include <filesystem>
 
-CREATE FOLDER NO MATTER WHAT:          std::filesystem::create_directories("my_folder");           Needs #include <filesystem>
+CREATE FOLDER NO MATTER WHAT:          std::filesystem::create_directories("my_folder");              Needs #include <filesystem>
 
-DELETE FOLDER / FILE NO MATTER WHAT:   std::filesystem::remove_all("my_folder_or_file");           Needs #include <filesystem>
+DELETE FOLDER / FILE NO MATTER WHAT:   std::filesystem::remove_all("my_folder_or_file");              Needs #include <filesystem>
 
-RUN ANOTHER C++ PROGRAM:               system("/home/user/Desktop/Authorship");   //The executable made by Geany or with the g++ command (both produce the same file.)
+RUN ANOTHER C++ PROGRAM:               system("/home/user/Desktop/Authorship");                       //The executable made by Geany or with the g++ command (both produce the same file.)
 
 TERMINAL OUTPUT TO FILE:               system("sha256sum my_file > hash_file");
 
-CHANGE WORKING DIR:                    chdir("/home/user/Desktop/my_folder");          Needs #include <unistd.h>
+CHANGE WORKING DIR:                    chdir("/home/user/Desktop/my_folder");                         Needs #include <unistd.h>
 
 APPEND TO FILE:                        out_stream.open(path, std::ios::app);
 
@@ -601,7 +601,7 @@ If Apple: cut speaker wires to eliminate chime ad, cut keyboard backlight cable,
  6. No functions or OOP.
  7. No "using namespace std".
  8. No system() calls in big tools.
- 9. Everything under the Unlicense.
+ 9. Everything unencumbered (licensed under the Unlicense.)
 10. Everything minimalist.
 11. Type-casting: (type)var.
 12. Don't use "cin >>" or "cin.getline".
