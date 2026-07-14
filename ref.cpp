@@ -432,9 +432,9 @@ DELETE FOLDER / FILE NO MATTER WHAT:   std::filesystem::remove_all("my_folder_or
 
 SLEEP IN MILLISECONDS:                 std::this_thread::sleep_for(std::chrono::milliseconds(500));   Needs #include <chrono> and #include <thread>
 
-RUN ANOTHER C++ PROGRAM:               system("/home/user/Desktop/Authorship");                       //The executable made by Geany or with the g++ command (both produce the same file.)
+RUN ANOTHER C++ PROGRAM:               std::system("/home/user/Desktop/Authorship");                  Needs #include <cstdlib> //The executable made by Geany or with the g++ command (both produce the same file.)
 
-TERMINAL OUTPUT TO FILE:               system("sha256sum my_file > hash_file");
+TERMINAL OUTPUT TO FILE:               std::system("sha256sum my_file > hash_file");                  Needs #include <cstdlib>
 
 CHANGE WORKING DIR:                    chdir("/home/user/Desktop/my_folder");                         Needs #include <unistd.h>
 
@@ -516,7 +516,7 @@ qasmixer                 GUI  Allows volume-up for headphones on old laptops (se
 shotwell                 GUI  Image viewer+editor with edit options right on the home of each image.
 
 exiv2                    CLI  Delete/modify/print image EXIF data. Commands: exiv2 print /path/to/file    exiv2 delete /path/to/file.
-fswebcam                 CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
+fswebcam                 CLI  Take pictures using USB-connected Android phone or USB-connected webcam or built-in webcam. (Command: fswebcam -q --no-banner a.jpg   Default capture is from built-in webcam or the only connected. If phone: swipe down & see webcam option in USB connection pop-up. To use USB-connected webcam if built-in exists: fswebcam -q --device /dev/video2 --no-banner a.jpg   And if really old webcam, it creates temporary file in /dev/v4l/by-id when plugged in, so use path to that file as source for your fswebcam command.   And if you want images converted to bmp (good for feeding models) use the mogrify command (comes from package imagemagick which should already be installed on Devuan/Debian): mogrify -format bmp a.jpg   (C++ FYI: running std::system("fswebcam -q --device /dev/video2 --no-banner a.jpg"); for example, creates the image in working directory, very good.) On a decent laptop, fswebcam can capture 1 image/s.)   (And for automated capture, see github.com/compromise-evident/WhatNot/blob/main/quick-security-camera.cpp)
 g++                      CLI  GNU compiler for C++ (runs C++ in Geany, industry standard compiler. Install gcc if programming in C.) Command: g++ /path/to/file.
 imagemagick              CLI  Convert images and all kinds of stuff. (Use "mogrify" or "convert path_to.bmp out.jpg".)
 tesseract-ocr            CLI  Recognize text from image.  Use: tesseract image.jpg my_words   (To make it look for specific char hence improve accuracy & efficiency, use: tesseract image.png output.txt --tessedit_char_whitelist=0123456789RSTXYZ)
@@ -547,11 +547,11 @@ passwd root                    (change passwd for root)
 sudo dmidecode -t memory       (list computer specs as root)   options: bios, system, baseboard, chassis, processor, memory, cache, connector, slot,     sudo dmidecode -s system-product-name
 
 Commands for C++. For terminal: use what's quoted:
-Record as raw audio for 7 seconds using sox:        system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
-Convert raw audio (any file) to .wav using sox:     system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
-Get length of .wav file in seconds using sox:       system("sox my_audio.wav -n stat 2>&1 | grep 'Length' > seconds.txt");
-Play audio file through vlc then close vlc:         system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
-Set system volume using pre-installed ALSA:         system("amixer -q set Master 75%");
+Record as raw audio for 7 seconds using sox:        std::system("rec -r 44100 -c 2 -b 8 -e unsigned-integer -t raw temp/recorded.raw trim 0 7");
+Convert raw audio (any file) to .wav using sox:     std::system("sox -r 44100 -e unsigned -b 8 -c 1 my_file.raw -t wav out_file.wav");
+Get length of .wav file in seconds using sox:       std::system("sox my_audio.wav -n stat 2>&1 | grep 'Length' > seconds.txt");
+Play audio file through vlc then close vlc:         std::system("vlc my_audio.wav --play-and-exit 2>/dev/null &");
+Set system volume using pre-installed ALSA:         std::system("amixer -q set Master 75%");
 
 
 
@@ -602,7 +602,7 @@ If Apple: cut speaker wires to eliminate chime ad, cut keyboard backlight cable,
  5. Everything in main().
  6. No functions or OOP.
  7. No "using namespace std".
- 8. No system() calls in big tools.
+ 8. No std::system() calls in big tools.
  9. Everything unencumbered (licensed under the Unlicense.)
 10. Everything minimalist.
 11. Type-casting: (type)var.
