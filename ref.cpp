@@ -430,6 +430,8 @@ CREATE FOLDER NO MATTER WHAT:          std::filesystem::create_directories("my_f
 
 DELETE FOLDER / FILE NO MATTER WHAT:   std::filesystem::remove_all("my_folder_or_file");              Needs #include <filesystem>
 
+SLEEP IN MILLISECONDS:                 std::this_thread::sleep_for(std::chrono::milliseconds(500));   Needs #include <chrono> and #include <thread>
+
 RUN ANOTHER C++ PROGRAM:               system("/home/user/Desktop/Authorship");                       //The executable made by Geany or with the g++ command (both produce the same file.)
 
 TERMINAL OUTPUT TO FILE:               system("sha256sum my_file > hash_file");
