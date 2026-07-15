@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# YOUR CONTROLS (CHANGE ANY 1st 4? GET NEW MODEL!)                                                                                         Run it: "apt install geany python3-torch". Open the .py in Geany.
-longest =  784 # Longest data string in train.txt, test.txt, cognize.txt  (safe.)    input  layer                                          Go to Build >> Set Build Commands. Where it says "Execute", replace "python" with "python3".
-classes =   10 # Number of different labels (2 = labels 0,1. 500 = labels 0-499.)    output layer                                          F5 to run.
+# YOUR CONTROLS: (CHANGE ANY 1st 4? GET NEW MODEL!)
+longest =  784 # Longest data string in train.txt, test.txt, cognize.txt  (safe.)    input  layer
+classes =   10 # Number of different labels (2 = labels 0,1. 500 = labels 0-499.)    output layer
 width   =   70 # Number of neurons per hidden layer (wide = attentive to detail.)    hidden layer size
 depth   =    2 # Number of hidden layers  (the active brain parts of your model.)    hidden layer quantity
 ln_rate = 0.01 # Learning-rate. This tells PyTorch how aggressively each model parameter is to be adjusted.
@@ -10,6 +10,10 @@ a_batch =    1 # Number of train.txt items studied at once; accumulated. If 1, r
 retrain =    1 # Number of times to train on entire train.txt. It's best to increase retrain if a_batch >1.
 
 
+
+# Run it: "apt install geany python3-torch". Open the .py in Geany.
+# Go to Build >> Set Build Commands. Where it says "Execute", replace "python" with "python3".
+# F5 to run.
 
 import torch, torch.nn as nn, torch.optim as optim
 
