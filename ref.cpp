@@ -34,7 +34,7 @@ int main()
 	//Gets bit occurrence (from byte occurrence).
 	unsigned long long ones = 0, zeros = 0;
 	for(int a = 0; a < 256; a++)
-	{	std::bitset<8> bits(a);
+	{	std::bitset <8> bits(a);
 		ones  += (  bits. count() * byte_occur[a]);
 		zeros += ((~bits).count() * byte_occur[a]);
 	}
