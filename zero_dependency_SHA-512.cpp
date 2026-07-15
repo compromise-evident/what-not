@@ -1,5 +1,7 @@
-//Raw unoptimized SHA-512. No lib required.                                     Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-//To compare, do "sha512sum /your/file"
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Raw unoptimized SHA-512. No lib required.
+To compare, do "sha512sum /your/file" */
 
 #include <iostream>
 #include <string>

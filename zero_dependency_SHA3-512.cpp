@@ -1,5 +1,7 @@
-//Raw unoptimized SHA3-512. No lib required.                                    Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
-//To compare, do "openssl dgst -sha3-512 /your/file"
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Raw unoptimized SHA3-512. No lib required.
+To compare, do "openssl dgst -sha3-512 /your/file" */
 
 #include <iostream>
 #include <string>

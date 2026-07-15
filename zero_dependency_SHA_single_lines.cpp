@@ -1,4 +1,6 @@
-//Raw unoptimized SHA. No lib required.                                         Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Raw unoptimized SHA. No lib required. */
 
 #include <iostream>
 #include <string>
