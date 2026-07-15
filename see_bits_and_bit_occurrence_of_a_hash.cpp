@@ -1,8 +1,10 @@
-//YOUR CONTROLS:                                                                                    Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//YOUR CONTROLS:
 char your_hash[] = {"6a74cb02b60a820f33139bd65c17861daf6f0707efcd5e0a03808317be46488e"};
 //Enter SHA-256, SHA-512, or any string or hash containing symbols "0123456789abcdef".
 
 
+
+//Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
 
 #include <iostream>
 int main()
