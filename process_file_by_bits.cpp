@@ -1,4 +1,6 @@
-/*Process any file bit-by-bit. Add lines of code                                Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Process any file bit-by-bit. Add lines of code
 at the bottom for what to do with 1s and 0s...*/
 
 #include <fstream>
