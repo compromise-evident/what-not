@@ -7,6 +7,7 @@ char your_hash[] = {"6a74cb02b60a820f33139bd65c17861daf6f0707efcd5e0a03808317be4
 //Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
 
 #include <iostream>
+#include <string>
 int main()
 {	std::string bits;
 	for(long long a = 0; your_hash[a] != '\0'; a++)
