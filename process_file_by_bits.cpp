@@ -8,9 +8,7 @@ at the bottom for what to do with 1s and 0s...*/
 #include <iostream>
 #include <string>
 int main()
-{	int raw_byte;
-	char file_byte;
-	std::ifstream in_stream;
+{	std::ifstream in_stream;
 	
 	//Gets path.
 	std::cout << "\nDrop/enter file:\n";
@@ -19,8 +17,8 @@ int main()
 	
 	//Begins.
 	in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Begins).\n"; return 1;}
-	for(; in_stream.get(file_byte);)
-	{	raw_byte = file_byte & 0xFF; //0 to 255.
+	for(char file_byte; in_stream.get(file_byte);)
+	{	int raw_byte = file_byte & 0xFF; //0 to 255.
 		
 		//Makes binary 00000000 to 11111111.
 		bool binary[8] = {0};
