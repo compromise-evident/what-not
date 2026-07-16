@@ -61,8 +61,8 @@ int main()
 	out_stream.open("analysis", std::ios::app); if(!out_stream) {std::cout << "\nCan't open file for writing. (Appends only the 97 standard text bytes).\n"; return 1;}
 	out_stream << "\nOnly the 97 standard text bytes (9, 10, and 32-126):\n";
 	for(; in_stream.get(file_byte);)
-	{	if      ((file_byte > 31) && (file_byte < 127)) {out_stream.put(file_byte);}
-		else if ((file_byte == 9) || (file_byte == 10)) {out_stream.put(file_byte);}
+	{	     if((file_byte > 31) && (file_byte < 127)) {out_stream.put(file_byte);}
+		else if((file_byte == 9) || (file_byte == 10)) {out_stream.put(file_byte);}
 	}
 	in_stream.close();
 	out_stream.close();
