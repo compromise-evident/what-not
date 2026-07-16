@@ -3,6 +3,7 @@
 Process any file bit-by-bit. Add lines of code
 at the bottom for what to do with 1s and 0s...*/
 
+#include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -13,9 +14,8 @@ int main()
 	
 	//Gets path.
 	std::cout << "\nDrop/enter file:\n";
-	std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
-	if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
-	in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+	std::string path; std::getline(std::cin, path); if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
+	if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 	
 	//Begins.
 	in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Begins).\n"; return 1;}
