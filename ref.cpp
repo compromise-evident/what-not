@@ -10,8 +10,7 @@ resources; it should be the first tab in your editor.*/
 #include <iostream>
 #include <string>
 int main()
-{	char file_byte;
-	std::ifstream in_stream;
+{	std::ifstream in_stream;
 	std::ofstream out_stream;
 	
 	//Gets path.
@@ -25,7 +24,7 @@ int main()
 	//Gets byte occurrence.
 	in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Gets byte occurrence).\n"; return 1;}
 	unsigned long long byte_occur[256] = {0};
-	for(; in_stream.get(file_byte);)
+	for(char file_byte; in_stream.get(file_byte);)
 	{	int raw_byte = file_byte & 0xFF;
 		byte_occur[raw_byte]++;
 	}
@@ -52,7 +51,7 @@ int main()
 	in_stream.open(path);                       if( !in_stream) {std::cout << "\nCan't open file for reading. (Appends every byte raw).\n"; return 1;}
 	out_stream.open("analysis", std::ios::app); if(!out_stream) {std::cout << "\nCan't open file for writing. (Appends every byte raw).\n"; return 1;}
 	out_stream << "\nEvery byte raw:\n";
-	for(; in_stream.get(file_byte);) {int raw_byte = file_byte & 0xFF; out_stream << raw_byte << "\n";}
+	for(char file_byte; in_stream.get(file_byte);) {int raw_byte = file_byte & 0xFF; out_stream << raw_byte << "\n";}
 	in_stream.close();
 	out_stream.close();
 	
@@ -60,7 +59,7 @@ int main()
 	in_stream.open(path);                       if( !in_stream) {std::cout << "\nCan't open file for reading. (Appends only the 97 standard text bytes).\n"; return 1;}
 	out_stream.open("analysis", std::ios::app); if(!out_stream) {std::cout << "\nCan't open file for writing. (Appends only the 97 standard text bytes).\n"; return 1;}
 	out_stream << "\nOnly the 97 standard text bytes (9, 10, and 32-126):\n";
-	for(; in_stream.get(file_byte);)
+	for(char file_byte; in_stream.get(file_byte);)
 	{	     if((file_byte > 31) && (file_byte < 127)) {out_stream.put(file_byte);}
 		else if((file_byte == 9) || (file_byte == 10)) {out_stream.put(file_byte);}
 	}
