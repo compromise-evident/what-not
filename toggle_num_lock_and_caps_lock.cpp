@@ -12,25 +12,25 @@ int main()
 	const unsigned int NUM_MASK = Mod2Mask;
 	
 	//Turns off Num Lock and Caps Lock.
-	XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK | NUM_MASK, 0); XFlush(dpy);
+	XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK | NUM_MASK, 0); XSync(dpy, False);
 	std::this_thread::sleep_for(std::chrono::milliseconds(500));
 	
 	//Blinks.
 	for(int a = 0; a < 5; a++)
 	{	//Num Lock on.
-		XkbLockModifiers(dpy, XkbUseCoreKbd, NUM_MASK, NUM_MASK); XFlush(dpy);
+		XkbLockModifiers(dpy, XkbUseCoreKbd, NUM_MASK, NUM_MASK); XSync(dpy, False);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		
 		//Num Lock off.
-		XkbLockModifiers(dpy, XkbUseCoreKbd, NUM_MASK, 0); XFlush(dpy);
+		XkbLockModifiers(dpy, XkbUseCoreKbd, NUM_MASK, 0); XSync(dpy, False);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		
 		//Caps Lock on.
-		XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK, CAPS_MASK); XFlush(dpy);
+		XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK, CAPS_MASK); XSync(dpy, False);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 		
 		//Caps Lock off.
-		XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK, 0); XFlush(dpy);
+		XkbLockModifiers(dpy, XkbUseCoreKbd, CAPS_MASK, 0); XSync(dpy, False);
 		std::this_thread::sleep_for(std::chrono::milliseconds(500));
 	}
 	
