@@ -20,16 +20,18 @@ import torch, torch.nn as nn, torch.optim as optim
 print("\n(1) Model   (Create a new model and save it as one file.)")
 print(  "(2) Train   (Train & test model on train.txt & test.txt.)")
 print(  "(3) Test    (See only testing on test.txt - no training.)")
-print(  "(4) Use     (Classify unlabeled cognize.txt - no spaces.)"); o = int(input("\nOption: "));
+print(  "(4) Use     (Classify unlabeled cognize.txt - no spaces.)")
+o = input("\nOption: ")
+if o not in ("1", "2", "3"): print("\nBad option."); exit(0);
 
 model = nn.Sequential(); model.add_module('input',       nn.Linear(longest, width  )); model.add_module('relu1',     nn.ReLU());
 for a in range(depth):   model.add_module(f'hidden_{a}', nn.Linear(  width, width  )); model.add_module(f'relu_{a}', nn.ReLU());
 model.add_module                         ('output',      nn.Linear(  width, classes)); normalized = [0.0] * longest;
 
-if o == 1: # Model___________________________________________________________________________________________________________________________________________________
+if o == "1": # Model___________________________________________________________________________________________________________________________________________________
 	torch.save(model.state_dict(), 'Model.pth'); print("\nModel.pth saved with hidden layers:  ", width, "wide,", depth, "deep.")          # Saves model to file.
 
-if o == 2: # Train___________________________________________________________________________________________________________________________________________________
+if o == "2": # Train___________________________________________________________________________________________________________________________________________________
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
 	with open('training-data/train.txt', 'r') as f: total_training_data_items = sum(1 for line in f)
 	number_of_full_batches = (total_training_data_items - (total_training_data_items % a_batch)) // a_batch                                # Number of full batches.
@@ -49,7 +51,7 @@ if o == 2: # Train______________________________________________________________
 		in_stream.close()
 	torch.save(model.state_dict(), 'Model.pth');                                                                                           # Saves updated model.
 
-if o == 3 or o == 2: # Test__________________________________________________________________________________________________________________________________________
+if o == "3" or o == "2": # Test__________________________________________________________________________________________________________________________________________
 	if o == 3: model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                        # Loads model from file.
 	with open('training-data/test.txt', 'r') as f: total_testing_data_items = sum(1 for line in f)                                         # Quantity to test on.
 	misclassified = 0; off_by_summation = 0; model.eval(); print("\n", end = '');
@@ -71,7 +73,7 @@ if o == 3 or o == 2: # Test_____________________________________________________
 	print(" (misclassifies", misclassified, "out of", total_testing_data_items, end = ")\n\n")
 	print(f"Off by {off_by_summation / misclassified} on average (see results_extra.txt)")
 
-if o == 4: # Use_____________________________________________________________________________________________________________________________________________________
+if o == "4": # Use_____________________________________________________________________________________________________________________________________________________
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
 	with open('cognize.txt', 'r') as f: total_real_world_items = sum(1 for line in f)                                                      # Quantity to cognize.
 	in_stream = open('cognize.txt', 'r'); out_stream = open('results.txt', 'w'); model.eval(); print("\n", end = '');
