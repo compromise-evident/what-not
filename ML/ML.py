@@ -85,3 +85,5 @@ if o == 4: # Use________________________________________________________________
 		with torch.no_grad(): outputs = model(input_data); _, predictions = torch.max(outputs, 1);                                         # Uses model.
 		classification = predictions[0].item(); out_stream.write(f"{classification}\n");                                                   # Saves classification.
 	in_stream.close(); out_stream.close(); print("\nSee results.txt");
+
+input("\nPress return to continue\n")
