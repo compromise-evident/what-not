@@ -22,7 +22,7 @@ print(  "(2) Train   (Train & test model on train.txt & test.txt.)")
 print(  "(3) Test    (See only testing on test.txt - no training.)")
 print(  "(4) Use     (Classify unlabeled cognize.txt - no spaces.)")
 o = input("\nOption: ")
-if o not in ("1", "2", "3"): print("\nBad option."); exit(0);
+if o not in ("1", "2", "3", "4"): print("\nBad option."); exit(0);
 
 model = nn.Sequential(); model.add_module('input',       nn.Linear(longest, width  )); model.add_module('relu1',     nn.ReLU());
 for a in range(depth):   model.add_module(f'hidden_{a}', nn.Linear(  width, width  )); model.add_module(f'relu_{a}', nn.ReLU());
