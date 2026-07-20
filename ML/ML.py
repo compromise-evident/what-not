@@ -28,12 +28,12 @@ model = nn.Sequential(); model.add_module('input',       nn.Linear(longest, widt
 for a in range(depth):   model.add_module(f'hidden_{a}', nn.Linear(  width, width  )); model.add_module(f'relu_{a}', nn.ReLU());
 model.add_module                         ('output',      nn.Linear(  width, classes)); normalized = [0.0] * longest;
 
-# Model
+# Model.
 # WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
 if o == "1":
 	torch.save(model.state_dict(), 'Model.pth'); print("\nModel.pth saved with hidden layers:  ", width, "wide,", depth, "deep.")          # Saves model to file.
 
-# Train
+# Train.
 # WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
 if o == "2":
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
@@ -55,7 +55,7 @@ if o == "2":
 		in_stream.close()
 	torch.save(model.state_dict(), 'Model.pth');                                                                                           # Saves updated model.
 
-# Test
+# Test.
 # WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
 if o == "3" or o == "2":
 	if o == "3": model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                        # Loads model from file.
@@ -79,7 +79,7 @@ if o == "3" or o == "2":
 	print(" (misclassifies", misclassified, "out of", total_testing_data_items, end = ")\n\n")
 	print(f"Off by {off_by_summation / misclassified} on average (see results_extra.txt)")
 
-# Use
+# Use.
 # WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
 if o == "4":
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
