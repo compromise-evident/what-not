@@ -28,10 +28,14 @@ model = nn.Sequential(); model.add_module('input',       nn.Linear(longest, widt
 for a in range(depth):   model.add_module(f'hidden_{a}', nn.Linear(  width, width  )); model.add_module(f'relu_{a}', nn.ReLU());
 model.add_module                         ('output',      nn.Linear(  width, classes)); normalized = [0.0] * longest;
 
-if o == "1": # Model___________________________________________________________________________________________________________________________________________________
+# Model
+# WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+if o == "1":
 	torch.save(model.state_dict(), 'Model.pth'); print("\nModel.pth saved with hidden layers:  ", width, "wide,", depth, "deep.")          # Saves model to file.
 
-if o == "2": # Train___________________________________________________________________________________________________________________________________________________
+# Train
+# WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+if o == "2":
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
 	with open('training-data/train.txt', 'r') as f: total_training_data_items = sum(1 for line in f)
 	number_of_full_batches = (total_training_data_items - (total_training_data_items % a_batch)) // a_batch                                # Number of full batches.
@@ -51,7 +55,9 @@ if o == "2": # Train____________________________________________________________
 		in_stream.close()
 	torch.save(model.state_dict(), 'Model.pth');                                                                                           # Saves updated model.
 
-if o == "3" or o == "2": # Test__________________________________________________________________________________________________________________________________________
+# Test
+# WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+if o == "3" or o == "2":
 	if o == "3": model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                        # Loads model from file.
 	with open('training-data/test.txt', 'r') as f: total_testing_data_items = sum(1 for line in f)                                         # Quantity to test on.
 	misclassified = 0; off_by_summation = 0; model.eval(); print("\n", end = '');
@@ -73,7 +79,9 @@ if o == "3" or o == "2": # Test_________________________________________________
 	print(" (misclassifies", misclassified, "out of", total_testing_data_items, end = ")\n\n")
 	print(f"Off by {off_by_summation / misclassified} on average (see results_extra.txt)")
 
-if o == "4": # Use_____________________________________________________________________________________________________________________________________________________
+# Use
+# WZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMWZMW
+if o == "4":
 	model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                                   # Loads model from file.
 	with open('cognize.txt', 'r') as f: total_real_world_items = sum(1 for line in f)                                                      # Quantity to cognize.
 	in_stream = open('cognize.txt', 'r'); out_stream = open('results.txt', 'w'); model.eval(); print("\n", end = '');
