@@ -67,6 +67,10 @@ Each line in train.txt & test.txt: ```label```, ```space```, ```- and @```, ```n
 Each line in cognize.txt: ```- and @```, ```new line``` (\n.)
 (You have to create cognize.txt. Just copy data strings from test.txt.)
 
+A cognize.txt file is given here as an example. It is a copy of test.txt
+but without the labels. Using the given training-data, option 3 and 4
+must produce the same results.txt file!
+
 <br>
 
 ### The given training-data stacked 28x28 (visual_for_you.txt)
