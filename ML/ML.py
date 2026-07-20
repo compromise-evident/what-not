@@ -52,7 +52,7 @@ if o == "2": # Train____________________________________________________________
 	torch.save(model.state_dict(), 'Model.pth');                                                                                           # Saves updated model.
 
 if o == "3" or o == "2": # Test__________________________________________________________________________________________________________________________________________
-	if o == 3: model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                        # Loads model from file.
+	if o == "3": model.load_state_dict(torch.load('Model.pth', map_location = 'cpu'))                                                        # Loads model from file.
 	with open('training-data/test.txt', 'r') as f: total_testing_data_items = sum(1 for line in f)                                         # Quantity to test on.
 	misclassified = 0; off_by_summation = 0; model.eval(); print("\n", end = '');
 	in_stream = open('training-data/test.txt', 'r'); out_stream = open('results.txt', 'w'); out_xtra = open('results_extra.txt', 'w');
