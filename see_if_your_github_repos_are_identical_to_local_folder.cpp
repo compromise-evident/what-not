@@ -43,10 +43,10 @@ int main()
 	for(unsigned long long loop = 0; loop < repo_list.size(); loop++)
 	{	//Downloads the repo. "wget -q https://github.com/username/repo_name/archive/refs/heads/main.zip".
 		std::string wget = "wget -q https://github.com/"; wget += user_name; wget += "/"; wget += repo_list[loop]; wget += "/archive/refs/heads/main.zip";
-		system(wget.c_str());
+		std::system(wget.c_str());
 		
 		//Unzips the download.
-		system("unzip -q main.zip > /dev/null 2>&1");
+		std::system("unzip -q main.zip > /dev/null 2>&1");
 		std::filesystem::remove_all("main.zip");
 		
 		//Creates deterministic archive of the local repo.
