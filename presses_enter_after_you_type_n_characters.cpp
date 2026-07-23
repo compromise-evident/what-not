@@ -15,13 +15,12 @@ int main()
 	tcsetattr(STDIN_FILENO, TCSANOW, &new_settings);
 	
 	//Begins.
-	std::string typed_characters;
 	for(;;)
 	{	//Reads 5 characters.
 		std::cout << "\nType 5 characters. \"Enter\" will be pressed automatically: ";
-		typed_characters = "";
+		std::string typed_characters;
 		for(int a = 0; a < 5; a++)
-		{	char c; if(std::cin.get(c)) {std::cout << c; typed_characters += c;}
+		{	char c; if(std::cin.get(c)) {typed_characters += c; std::cout << c;}
 		}
 		std::cout << "\nCaptured string: " << typed_characters << "\n";
 	}
