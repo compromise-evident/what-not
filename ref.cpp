@@ -423,7 +423,7 @@ ________________________________________________________________________________
 #####,.                                                                  .,#####
 ##########*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#*#########
 
-SEARCH A FOLDER:                       grep -rlF 'the word' /path
+SEARCH A FOLDER:                       grep -rlFe 'the word' /path
 
 GET FILE SIZE IN BYTES:                unsigned long long size = std::filesystem::file_size(path);    Needs #include <filesystem>
 
