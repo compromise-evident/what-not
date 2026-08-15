@@ -1,17 +1,18 @@
-//YOUR CONTROLS:                                                                Run it: "apt install g++ geany libmpfr-dev". Open the .cpp in Geany.
-//                                                                              Append "-lmpfr" to Geany's compile & build commands. Hit F9 once. F5 to run.
-//                Replace with a "2" to 50,000 digits
-char n[50001] = {"528037116243879373684169704087111038557573838"};
-
+//YOUR CONTROLS:
+char n[50001] = {"528037116243879373684169704087111038557573838"}; //Replace with a "2" to 50,000 digits
 int precision_in_bits = 100;
 
 
 
-//Natural log of n, denoted ln(n), reveals an approximation of the average prime gaps near n.
-//Now do n/ln(n). It's an approximation of the number of primes <n.
+/*Run it: "apt install g++ geany libmpfr-dev". Open the .cpp in Geany.
+Go to Build >> Set Build Commands. Where it says "Compile" and "Build", append " -lmpfr".
+Hit F9 once. F5 to run.
+
+Natural log of n, denoted ln(n), reveals an approximation of the average prime gaps near n.
+Now do n/ln(n). It's an approximation of the number of primes <n. */
+
 #include <iostream>
 #include <mpfr.h>
-using namespace std;
 int main()
 {	//Prepares.
 	mpfr_t input, result; mpfr_init2(input, precision_in_bits); mpfr_init2(result, precision_in_bits); mpfr_set_str(input, n, 10, MPFR_RNDN);
@@ -21,11 +22,11 @@ int main()
 	
 	//Prints ln(n).
 	double ln_n = mpfr_get_d(result, MPFR_RNDN);
-	cout << "ln(n) = " << ln_n << "\n\n";
+	std::cout << "ln(n) = " << ln_n << "\n\n";
 	
-	//Prints full.
-	char full[100] = {'\0'}; mpfr_exp_t exponent; mpfr_get_str(full, &exponent, 10, 0, result, MPFR_RNDN);
-	cout << "full  = " << full << "\n\n";
+	//Prints more.
+	char more[100] = {'\0'}; mpfr_exp_t exponent; mpfr_get_str(more, &exponent, 10, 0, result, MPFR_RNDN);
+	std::cout << "more  = " << more << "\n\n";
 	
 	//Default n:
 	//This program: 102.978
