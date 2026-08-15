@@ -1,6 +1,6 @@
 //YOUR CONTROLS:
-long long number_of_gaps = 10;
 char n[50001] = {"528037116243879373684169704087111038557573838"}; //Replace with a "2" to 50,000 digits
+long long number_of_gaps = 10;
 
 
 
