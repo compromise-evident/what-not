@@ -8,7 +8,7 @@ int precision_in_bits = 100;
 
 
 //Natural log of n, denoted ln(n), reveals an approximation of the average prime gaps near n.
-//Now do n/ln(n). It's an approximation of the number of primes <n. (Bigger n = more accuracy.)
+//Now do n/ln(n). It's an approximation of the number of primes <n.
 #include <iostream>
 #include <mpfr.h>
 using namespace std;
