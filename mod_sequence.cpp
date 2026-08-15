@@ -20,3 +20,4 @@ int main()
 //Some of these sequences (sometimes every other value) I had searched for on OEIS and found matches!
 //Additionally, this can be used for infosec and to ID or hash "dividend". If I want a remainder of
 //80 and 81, do 1000000000000000000 mod 118 as well as mod 14925373. And dividend may not be known.
+//If you're going to use this seriously, use bigger numbers with GMP.
