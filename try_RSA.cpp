@@ -14,7 +14,6 @@ long. You can provide n known first digits of a factor.*/
 
 #include <cstdlib>
 #include <ctime>
-#include <filesystem>
 #include <fstream>
 #include <gmp.h>
 #include <iostream>
@@ -56,8 +55,8 @@ int main()
 	}
 	
 	//Saves factor to file.
+	std::cout << "\nDone! Prime appended to file \"FACTOR\":\n\n" << candidate_factor << "\n\n";
 	out_stream.open("FACTOR", std::ios::app); if(!out_stream) {std::cout << "\nCan't open file for writing. (Saves factor to file).\n"; return 1;}
 	out_stream << candidate_factor << "\n";
 	out_stream.close();
-	std::cout << "\nDone! Prime appended to file \"FACTOR\":\n\n" << candidate_factor << "\n\n";
 }
