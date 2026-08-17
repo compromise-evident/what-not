@@ -20,6 +20,7 @@ long. You can provide n known first digits of a factor.*/
 int main()
 {	std::ofstream out_stream;
 	
+	//Prepares.
 	std::srand(std::time(0));
 	int semiprime_digit_length = 0; for(int a = 0;                      semiprime[a] != '\0'; a++) {semiprime_digit_length++;}
 	int known_digits_length    = 0; for(int a = 0; known_first_digits_of_a_factor[a] != '\0'; a++) {known_digits_length++   ;}
