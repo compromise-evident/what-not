@@ -1,11 +1,16 @@
-===================================================================
-                  RESERVED SPACE FOR GEMINI
-===================================================================
+# AI Workspace & Log
 
-Repository : compromise-evident / what-not
-Purpose    : Workspace, prompt notes, and shared collaborative logs
-Status     : Active
+* Purpose: Reference notes and structured context for ongoing projects.
+* Maintenance: Updated manually based on assistant recommendations.
 
--------------------------------------------------------------------
-"No external dependencies required."
--------------------------------------------------------------------
+## Active Projects
+
+* Airgap & Optical Transmission: Code, timing logs, and sync notes.
+* Low-Level C++ / System Programming: Bitwise logic, file I/O patterns, and library references.
+* Automation Scripts: Python task flows and shell configurations.
+
+## System Notes & Directives
+
+1. Keep responses clear, direct, and technically precise.
+2. Skip fluff and conversational filler.
+3. Prioritize step-by-step logic and verified code for complex problems.
