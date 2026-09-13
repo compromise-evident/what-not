@@ -93,4 +93,4 @@ int main()
   to that "Public" folder. Find it in your files browser
   in "Browse Network" / "Other Locations".
 
-Or see github.com/compromise-evident/truly-instant-NAS     */
+Or see https://github.com/compromise-evident/what-not/blob/main/truly_instant_NAS     */
