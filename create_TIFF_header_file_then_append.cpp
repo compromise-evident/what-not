@@ -1,10 +1,12 @@
-//YOUR CONTROLS:                                                                Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//YOUR CONTROLS:
 long long  width = 500; //image  width in pixels
 long long height = 500; //image height in pixels
 
 
 
-/*Creates a 122-byte TIFF header file,
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Creates a 122-byte TIFF header file,
 to which you may append 3 bytes per pixel:
 1st byte: intensity of red   sub-pixel.
 2nd byte: intensity of green sub-pixel.
@@ -38,9 +40,8 @@ Gray  pixel: byte n */
 
 #include <fstream>
 #include <iostream>
-using namespace std;
 int main()
-{	ofstream out_stream;
+{	std::ofstream out_stream;
 	long long temp;
 	
 	//Header bytes.
@@ -65,7 +66,10 @@ int main()
 	temp = height              ; for(int a =  30; a <=  33; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 2: height
 	temp = height              ; for(int a = 102; a <= 105; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 8: load
 	temp = (width * height) * 3; for(int a = 114; a <= 117; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 9: bytes of pixel data
-	out_stream.open("append_to_me_3_bytes_per_pixel.tiff"); for(int a = 0; a < 122; a++) {out_stream.put(bytes[a]);} out_stream.close();
+	
+	out_stream.open("append_to_me_3_bytes_per_pixel.tiff"); if(!out_stream) {std::cout << "\nCan't open file for writing. (3B/pixel).\n"; return 1;}
+	for(int a = 0; a < 122; a++) {out_stream.put(bytes[a]);}
+	out_stream.close();
 	
 	//Edits header bytes for 1B/pixel.
 	bytes[66] = 1;                                                                                       //Entry 5: RGB/grayscale
@@ -74,5 +78,8 @@ int main()
 	temp = height              ; for(int a =  30; a <=  33; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 2: height
 	temp = height              ; for(int a = 102; a <= 105; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 8: load
 	temp =  width * height     ; for(int a = 114; a <= 117; a++) {bytes[a] = (temp % 256); temp /= 256;} //Entry 9: bytes of pixel data
-	out_stream.open("append_to_me_1_byte_per_pixel.tiff"); for(int a = 0; a < 122; a++) {out_stream.put(bytes[a]);} out_stream.close();
+	
+	out_stream.open("append_to_me_1_byte_per_pixel.tiff"); if(!out_stream) {std::cout << "\nCan't open file for writing. (1B/pixel).\n"; return 1;}
+	for(int a = 0; a < 122; a++) {out_stream.put(bytes[a]);}
+	out_stream.close();
 }
