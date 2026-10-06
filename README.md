@@ -33,7 +33,7 @@
 
 By law, everything you do, automatically includes the license "all rights reserved".
 That's copyright. It means you can sue someone for having the same thoughts.
-But you can override this by including any license, such as the Unlicense.
+But you can override this by including a license, such as the Unlicense.
 
 Most github repos have licenses with conditions,
 where if you took even a few lines of their code,
