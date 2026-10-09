@@ -1,20 +1,8 @@
 <!-- Tools, math, & fun. -->
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/75550631/228114557-75d1867a-eae0-45a6-885d-379e320eac5d.gif">
+  <img src="https://github.com/user-attachments/assets/e3ebfc43-d367-4a7a-8552-ff658ff35a9d">
 </p>
-
-
-
-
-
-<img width="512" height="288" alt="overkillographic" src="https://github.com/user-attachments/assets/e3ebfc43-d367-4a7a-8552-ff658ff35a9d" />
-
-
-
-
-
-
 
 <br>
 
