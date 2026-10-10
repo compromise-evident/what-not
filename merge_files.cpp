@@ -22,8 +22,7 @@ DIY: github.com/compromise-evident/what-not/blob/main/open_n_files_and_read_from
 #include <string>
 #include <vector>
 int main()
-{	char file_byte;
-	std::ifstream in_stream;
+{	std::ifstream in_stream;
 	std::ofstream out_stream;
 	
 	//Gets path.
@@ -51,7 +50,7 @@ int main()
 	//Merges.
 	out_stream.open("MERGED"); if(!out_stream) {std::cout << "\nCan't open file for writing. (Merges).\n"; return 1;}
 	int bytes_merged = 0; unsigned long long MB_merged = 0;
-	for(;;)
+	for(char file_byte;;)
 	{	//Gets byte from all files.
 		unsigned long long occur[8] = {0};
 		for(unsigned long long a = 0; a < file_list.size(); a++)
