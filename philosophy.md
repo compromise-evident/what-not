@@ -42,25 +42,17 @@ The first kind sit and wait. The second are forced to cause an apocalypse:
     And because UV does not penetrate too well, make sure
     the spore sample is extremely thin.
 
-<br>
-
 2.  **Resistance breed mushrooms** <br>
     Ditto but with any natural spores, no X-rays, no UV.
     Train spores to resist the human immune system.
-
-<br>
 
 3.  **Sabotage SpaceX and Blue Origin** <br>
     That'll keep us from spreading while asteroids do the rest.
     Go work on the moon just to kill the crew.
 
-<br>
-
 4.  **Set post-apocalyptic traps** <br>
     Build devices that appear to be resources you'd only
     want post-apocalypse, but are fatal if tampered with.
-
-<br>
 
 5.  **Survive to kill survivors** <br>
     Prep for doomsday so that post-apocalypse, you'll make
