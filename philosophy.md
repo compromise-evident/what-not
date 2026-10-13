@@ -1,7 +1,7 @@
 ### Current philosophy
 
-Torture is effective because life forces you to say what you would never say.
-You can become convinced that eternal consequences are worth an act of love.
+Torture is effective because life made you say things you would never say.
+Don't believe yourself when you compromise what's good for you.
 
 <br>
 
