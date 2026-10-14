@@ -22,5 +22,4 @@ just as cancer truly dies when everything dies.
   So they prevent life indiscriminately, at the cost of preventing the birth
   of those who would have wanted to live. They promote and act upon guidelines
   which force nonexistence on others, leaving a way out for those who would have been.
-
-https://github.com/compromise-evident/what-not/blob/main/earth_sterilization_ideas.md
+  https://github.com/compromise-evident/what-not/blob/main/earth_sterilization_ideas.md
