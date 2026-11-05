@@ -425,6 +425,8 @@ ________________________________________________________________________________
 
 SEARCH A FOLDER:                       grep -rlFe 'the word' /path
 
+SEE IF 2 FOLDERS ARE THE SAME:         diff -rq folder_1 folder_2 >/dev/null && echo yes > sameness || echo no > sameness     //Creates file "sameness" with "yes" or "no".
+
 GET FILE SIZE IN BYTES:                unsigned long long size = std::filesystem::file_size(path);    Needs #include <filesystem>
 
 CREATE FOLDER NO MATTER WHAT:          std::filesystem::create_directories("my_folder");              Needs #include <filesystem>
