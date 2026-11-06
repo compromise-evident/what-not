@@ -1,10 +1,12 @@
-//YOUR CONTROLS:                                                                                              Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+//YOUR CONTROLS:
 long long last_few_digits_of_your_semiprime = 423446789115381147; //Must end in 1, 3, 7, or 9.
 long long number_of_ending_digits_to_crack = 4; //Begin at 1 and increase!
 
 
 
-/* Prints which two numbers multiplied recreate n last digits of your semiprime.
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Prints which two numbers multiplied recreate n last digits of your semiprime.
 Increase the number of semiprime digits you want recreated.  Listed p*q are the
 plausible ending digits of the factors.  Modify semiprime ending digits as well.
 
@@ -16,7 +18,6 @@ given the last few digits of semiprime pq,  primes p are listed as every integer
 the same exact numbers are listed as multipliers for p, in a different order. */
 
 #include <iostream>
-using namespace std;
 int main()
 {	long long number_of_ending_digits_via_mod = 1;
 	for(long long a = 0; a < number_of_ending_digits_to_crack; a++) {number_of_ending_digits_via_mod *= 10;}
@@ -43,24 +44,24 @@ int main()
 					{	long long max_length_reference = (number_of_ending_digits_via_mod - 1);
 						max_length_reference /= 10;
 						
-						cout << "possibility_";
+						std::cout << "possibility_";
 						for(int temp = max_length_reference, a = 0; a < (number_of_ending_digits_to_crack - 1); a++)
-						{	if(quantity <= temp) {cout << "_";}
+						{	if(quantity <= temp) {std::cout << "_";}
 							temp /= 10;
 						}
-						cout << quantity << ":     ...";
+						std::cout << quantity << ":     ...";
 						
 						for(int temp = max_length_reference, a = 0; a < (number_of_ending_digits_to_crack - 1); a++)
-						{	if(p <= temp) {cout << "0";}
+						{	if(p <= temp) {std::cout << "0";}
 							temp /= 10;
 						}
-						cout << p << " * ...";
+						std::cout << p << " * ...";
 						
 						for(int temp = max_length_reference, a = 0; a < (number_of_ending_digits_to_crack - 1); a++)
-						{	if(q <= temp) {cout << "0";}
+						{	if(q <= temp) {std::cout << "0";}
 							temp /= 10;
 						}
-						cout << q << "     = ..." << product << " (semiprime)\n";
+						std::cout << q << "     = ..." << product << " (semiprime)\n";
 						
 						p_duplicate_watch += p;
 						q_duplicate_watch += q;
@@ -73,12 +74,12 @@ int main()
 		}
 	}
 	
-	if(p_duplicate_watch != q_duplicate_watch) {cout << "\n\nFAILED! Cryptographic semiprimes end in 1, 3, 7, or 9."; return 0;}
+	if(p_duplicate_watch != q_duplicate_watch) {std::cout << "\n\nFAILED! Cryptographic semiprimes end in 1, 3, 7, or 9."; return 0;}
 	
-	cout << "\n\n\nQuantity is always 4*10^n because 40% of numbers end in 1, 3, 7, 9."
-	     << "\n\n~Half are duplicates, as in a*b and b*a."
-	     << "\n\np and q sums are always 2*10^n, equal, and"
-	     << "\ntwice the digit length of possibilities;"
-	     << "\nsum(all p) = " << p_duplicate_watch 
-	     << "\nsum(all q) = " << q_duplicate_watch;
+	std::cout << "\n\n\nQuantity is always 4*10^n because 40% of numbers end in 1, 3, 7, 9."
+	          << "\n\n~Half are duplicates, as in a*b and b*a."
+	          << "\n\np and q sums are always 2*10^n, equal, and"
+	          << "\ntwice the digit length of possibilities;"
+	          << "\nsum(all p) = " << p_duplicate_watch 
+	          << "\nsum(all q) = " << q_duplicate_watch;
 }
