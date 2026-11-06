@@ -217,10 +217,8 @@ int main()
 	{	std::cout << a << " = " << list[a] << "\n";
 	}
 	
-	/*Now go and solve any first few Project Euler problems and
-	problem 104, USING BRUTE FORCE AND ONLY WHAT YOU KNOW SO FAR!
-	github.com/compromise-evident/what-not/blob/main/PE_104.cpp
-	
+	/*Now go and solve any first few Project Euler
+	problems USING BRUTE FORCE AND ONLY WHAT YOU KNOW SO FAR!
 	If you can do that, you can do anything. Now sure, your GitHub
 	is a résumé. But solving Project Euler puts you on a watchlist.
 	In fact, the NSA reserves your number theory publication rights.*/
