@@ -1,4 +1,6 @@
-/*The world's first! Turn any folder into a REPRODUCIBLE                        Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+The world's first! Turn any folder into a REPRODUCIBLE
 file and back. The file will be as big as your folder.
 
 If you want to open and look at that archive file,
