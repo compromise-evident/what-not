@@ -1,4 +1,6 @@
-/*Merge any files based on most-occurring bits.                                 Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+/*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Merge any files based on most-occurring bits.
 By merging copies of a file, you recreate the original
 file, even as the copies become increasingly corrupted.
 
@@ -27,9 +29,8 @@ int main()
 	
 	//Gets path.
 	std::cout << "\nDrop/enter folder:\n";
-	std::string path; std::getline(std::cin, path); if(path[0] == '\0') {std::getline(std::cin, path);}
-	if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();} //Fixes path if drag-n-dropped.
-	in_stream.open(path); if(!in_stream) {std::cout << "\nNo path " << path << "\n"; return 1;} in_stream.close();
+	std::string path; std::getline(std::cin, path); if(path[0] == '\'') {path.erase(0, 1); path.pop_back(); path.pop_back();}
+	if(!std::filesystem::exists(path)) {std::cout << "\nNo path " << path << "\n"; return 1;}
 	
 	//Gets list of ALL files.
 	std::vector <std::string> file_list;
