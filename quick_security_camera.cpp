@@ -1,88 +1,69 @@
-//YOUR CONTROLS:                                                                Run it: "apt install g++ geany fswebcam". Open the .cpp in Geany. Hit F9 once. F5 to run.
-long long seconds_to_sleep_between_image_capture = 3;
-long long number_of_images_to_capture = 1000000000000000000;
+//YOUR CONTROLS:
+int seconds_to_sleep_between_image_capture = 3;
+int number_of_images_to_capture = 1000000;
 
-/*Webcam auto-capture. Input can also be a smartphone via USB; use phone's
+
+
+/*Run it: "apt install g++ geany fswebcam". Open the .cpp in Geany. Hit F9 once. F5 to run.
+
+Webcam auto-capture. Input can also be a smartphone via USB; use phone's
 webcam option in "more USB options" when connecting phone to computer.*/
 
-//Just do "apt install fswebcam".
-
-#include <fstream>
+#include <chrono>
+#include <ctime>
+#include <filesystem>
+#include <iomanip>
 #include <iostream>
-using namespace std;
+#include <sstream>
+#include <string>
+#include <thread>
 int main()
-{	ifstream in_stream;
-	ofstream out_stream;
+{	//Detects webcams (priority: external).
+	std::system("fswebcam -q -r 1920x1080 --no-banner                      on_board_webcam_test.jpg");
+	std::system("fswebcam -q -r 1920x1080 --no-banner --device /dev/video2 external_webcam_test.jpg");
 	
-	//Detects webcams (priority: external.)
-	system("mkdir temp -p");
-	system("fswebcam -q -r 1920x1080 --no-banner                      temp/on_board_webcam_test.jpg");
-	system("fswebcam -q -r 1920x1080 --no-banner --device /dev/video2 temp/external_webcam_test.jpg");
-	
-	std::cout << "\033[2J\033[3J\033[1;1H"; //Clears screen, erasing history.
-	bool presence_of_on_board_webcam = false;
-	bool presence_of_external_webcam = false;
-	in_stream.open("temp/on_board_webcam_test.jpg"); if(in_stream.fail() == false) {presence_of_on_board_webcam = true;} in_stream.close();
-	in_stream.open("temp/external_webcam_test.jpg"); if(in_stream.fail() == false) {presence_of_external_webcam = true;} in_stream.close();
-	
-	remove("temp/on_board_webcam_test.jpg");
-	remove("temp/external_webcam_test.jpg");
-	
-	if((presence_of_on_board_webcam == false) && (presence_of_external_webcam == false))
-	{	cout << "\nNo webcams detected. Try running this again.\n\n"
-		     << "Do \"apt install fswebcam\"\n\n"
-		     << "Try plugging in the webcam half way into the USB port.\n\n";
-		
+	if((!std::filesystem::exists("on_board_webcam_test.jpg"))
+	&& (!std::filesystem::exists("external_webcam_test.jpg")))
+	{	std::cout << "\nNo webcams detected. Try running this again.\n\n"
+		          << "Do \"apt install fswebcam\"\n\n"
+		          << "Try plugging in the webcam half way into the USB port.\n\n";
 		return 0;
 	}
 	
-	string prefix = "fswebcam -q -r 1920x1080 --no-banner ";
-	if(presence_of_external_webcam == true) {prefix += " --device /dev/video2 ";}
+	std::string prefix = "fswebcam -q -r 1920x1080 --no-banner ";
+	if(std::filesystem::exists("external_webcam_test.jpg")) {prefix += " --device /dev/video2 ";}
 	
-	
-	
-	
+	std::filesystem::remove_all("on_board_webcam_test.jpg");
+	std::filesystem::remove_all("external_webcam_test.jpg");
 	
 	//Begins.
-	system("mkdir Images -p");
-	long long reference_unix_time = time(0);
-	for(long long loop = 0; loop < number_of_images_to_capture; loop++)
-	{	//Gets military time.
-		system("date --rfc-3339=seconds > temp/military_time");
-		in_stream.open("temp/military_time"); char military_time[50] = {'\0'}; in_stream.getline(military_time, 50); in_stream.close();
-		military_time[10] = '_'; military_time[19] = '\0';
-		
-		//Gets civilian time.
-		system("date > temp/civilian_time");
-		in_stream.open("temp/civilian_time"); char civilian_time[50] = {'\0'}; in_stream.getline(civilian_time, 50); in_stream.close();
-		for(int a = 0; a < 50; a++) {if(civilian_time[a] == ' ') {civilian_time[a] = '_';}}
-		
-		//Makes a file name like "Images/2026-01-15_18:03:14___Thu_Jan_15_06:03:14_PM_MST_2026.jpg".
-		string temporal_name = "Images/"; temporal_name += military_time; temporal_name += "___"; temporal_name += civilian_time; temporal_name += ".jpg";
-		
-		//Makes a command like "fswebcam -q -r 1920x1080 --no-banner --device /dev/video2 Images/2026-01-15_18:03:14___Thu_Jan_15_06:03:14_PM_MST_2026.jpg".
-		string command = prefix; command += temporal_name;
+	std::cout << "\033[2J\033[3J\033[1;1H"; std::cout << "\n"; //Clears screen, erasing history.
+	std::filesystem::create_directories("images");
+	for(int a = 0; a < number_of_images_to_capture; a++)
+	{	//Gets date & time.
+		std::string date;
+		auto now = std::chrono::system_clock::now();
+		std::time_t currentTime = std::chrono::system_clock::to_time_t(now);
+		std::tm localTime; localtime_r(&currentTime, &localTime);
+		std::ostringstream oss; oss << std::put_time(&localTime, "%Y_%m_%d_%H:%M:%S"); date = oss.str();
 		
 		//Takes a photo.
-		system(command.c_str());
-		
-		//Keeps you posted.
-		system("date");
-		cout << (((time(0) - reference_unix_time) / 60) / 60) / 24      << " days, "
-		     << (((time(0) - reference_unix_time) / 60) / 60)      % 24 << " hours, "
-		     <<  ((time(0) - reference_unix_time) / 60)            % 60 << " minutes, "
-		     <<   (time(0) - reference_unix_time)                  % 60 << " seconds\n\n";
+		std::string command = prefix; command += "images/"; command += date; command += ".jpg"; //fswebcam -q -r 1920x1080 --no-banner images/2026_11_06_02:13:46.jpg
+		std::system(command.c_str());
 		
 		//Sleeps.
-		for(long long a = 0; a < seconds_to_sleep_between_image_capture; a++) {system("sleep 1");}
+		std::cout << (a + 1) << " images captured...\n";
+		for(int b = 0; b < seconds_to_sleep_between_image_capture; b++) {std::this_thread::sleep_for(std::chrono::milliseconds(1000));}
 	}
 }
 
 
 
+/* Truly instant NAS: https://github.com/compromise-evident/what-not/blob/main/truly_instant_NAS
 
 
-/*You can even retrieve / delete images via local network.
+
+or you can even retrieve / delete images via local network.
 
 * The machine running this should have the Gnome desktop environment,
   unfortunately. Go to Settings, Sharing. Enable sharing, then enable
@@ -91,6 +72,4 @@ int main()
 * Run this in a folder in /home/user/Public
 * Now any machine on the network has full read / write access
   to that "Public" folder. Find it in your files browser
-  in "Browse Network" / "Other Locations".
-
-Or see https://github.com/compromise-evident/what-not/blob/main/truly_instant_NAS     */
+  in "Browse Network" / "Other Locations". */
