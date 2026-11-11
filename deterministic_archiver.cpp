@@ -86,7 +86,7 @@ int main()
 		in_stream.open(path); if(!in_stream) {std::cout << "\nCan't open file for reading. (Unpacks).\n"; return 1;}
 		for(std::string line; std::getline(in_stream, line);)
 		{	//Creates folder.
-			if(line.rfind("FOLDER: ", 0) == 0) //If line starts with "FOLDER: ".
+			if(line.find("FOLDER: ") == 0) //If line starts with "FOLDER: ".
 			{	line.erase(0, 8); std::string dir = "unpacked/"; dir += line;
 				std::filesystem::create_directories(dir);
 				continue;
@@ -94,7 +94,7 @@ int main()
 			
 			//Creates empty file.
 			std::string name = "unpacked/";
-			if(line.rfind("FILE: ", 0) == 0) //If line starts with "FILE: ".
+			if(line.find("FILE: ") == 0) //If line starts with "FILE: ".
 			{	line.erase(0, 6); name += line;
 				out_stream.open(name); if(!out_stream) {std::cout << "\nCan't open file for writing. (Creates empty file).\n"; return 1;}
 				out_stream.close();
