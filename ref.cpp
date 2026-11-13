@@ -425,7 +425,7 @@ ________________________________________________________________________________
 
 SEARCH A FOLDER:                       grep -rlFe 'the word' /path
 
-SEE IF 2 FOLDERS ARE THE SAME:         diff -rq folder_1 folder_2 >/dev/null && echo yes > sameness || echo no > sameness     //Creates file "sameness" with "yes" or "no".
+SEE IF 2 FOLDERS ARE THE SAME:         diff -rq folder_1 folder_2 >/dev/null && echo same > sameness || echo different > sameness          //Creates file "sameness" containing the word "same" if the folders are the same, or containing the word "different" if the folders are not the same.
 
 GET FILE SIZE IN BYTES:                unsigned long long size = std::filesystem::file_size(path);    Needs #include <filesystem>
 
