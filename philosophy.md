@@ -1,8 +1,7 @@
 ### Current philosophy
 
 Torture is effective because life made you say things you would never say.
-Don't believe yourself when you compromise on what's good for you.
-Save yourself.
+So don't believe yourself when you compromise on what's good for you.
 
 <br>
 
