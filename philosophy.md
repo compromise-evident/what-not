@@ -8,9 +8,9 @@ Save yourself.
 
 ### Previous philosophy
 
-There are 2 kinds of people in this world, both equally terrorist.
-You have no choice but to cause an apocalypse,
-just as cancer truly dies when everything dies.
+There are only 2 kinds of people in this world.
+And both are equally terrorist.
+So cause an apocalypse.
 
 * Those who want to live know that many unborn will want to live.
   So they make babies indiscriminately, at the cost of raping into
