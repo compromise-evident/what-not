@@ -8,7 +8,7 @@
   throwing it away. You're forced to brute-force key transformations
   that would lead to making sense of the data. You're forced to,
   because there are no shortcuts to knowing which transformation
-  was used. And a cipher can have identifying data and properties
+  was used. And a cipher can have identifying data and/or properties
   in its plaintext so that keys can be rejected.
   This proof describes a problem classifiable under NP
   (easily verifiable solutions) but not under P
