@@ -3,12 +3,12 @@
 No key is rejected when decrypting a One-time pad (perfect secrecy).
 Complete brute-force cannot determine the usefulness of any key,
 and you'll end up with all possible plaintext that can ever be written.
-But you can step down from the One-time pad by transforming the key,
+But you can step down from the One-time pad by transforming the key
 instead of throwing it away.
-Now some keys can be rejected.
 And because you're so close to perfect secrecy,
-it has to be difficult to find the key,
-because you're forced to brute-force all the possible
+it has to be difficult to find the key.
+Now some keys can be rejected.
+You're forced to brute-force
 key transformations that would lead to making sense of the data.
 This proof describes a problem classifiable under NP
 (easily verifiable solutions) but not under P
