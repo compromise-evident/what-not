@@ -7,8 +7,7 @@
 * Step down from the One-time pad by transforming the key instead of
   throwing it away. Because you're so close to perfect secrecy,
   it has to be difficult to find the key.
-
-* Now some keys can be rejected. You're forced to brute-force
+  Now some keys can be rejected. You're forced to brute-force
   key transformations that would lead to making sense of the data.
   You can determine the usefulness of keys.
   This proof describes a problem classifiable under NP
