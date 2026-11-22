@@ -2,18 +2,18 @@
 
 * No key is rejected when decrypting a One-time pad (perfect secrecy).
   Complete brute-force cannot determine the usefulness of any key.
-  You'll end up with all possible plaintext that can ever be written.
+  You end up with all the plaintext that can ever be written.
 
 * Step down from the One-time pad by transforming the key instead of
-  throwing it away. And because you're so close to perfect secrecy,
-  it has to be difficult to find the key.
-  You're forced to brute-force key transformations
-  that would lead to making sense of the data.
-  You're forced to. Because there are no shortcuts
-  to knowing which transformation was used.
+  throwing it away. You're forced to brute-force key transformations
+  that would lead to making sense of the data. You're forced to,
+  because there are no shortcuts to knowing which transformation
+  was used. And a cipher can have identifying data and properties
+  in its plaintext so that keys can be rejected.
   This proof describes a problem classifiable under NP
   (easily verifiable solutions) but not under P
   (easily discoverable solutions) therefore P != NP.
+  Nikolay Valentinovich Repnitskiy 2020_02_21
 
 <br>
 
