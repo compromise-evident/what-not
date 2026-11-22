@@ -15,7 +15,7 @@
   (easily verifiable solutions) but not under P
   (easily discoverable solutions) therefore P != NP.
 
-Nikolay Valentinovich Repnitskiy - February 21 2020
+<sup>Nikolay Valentinovich Repnitskiy - February 21 2020</sup>
 
 <br>
 
@@ -36,7 +36,7 @@ usefulness of any key.  Only the key owners know that         8   8 9 0 1 2 3 4 
 7 was intended.  Extend the table  to 255 for  files.         9   9 0 1 2 3 4 5 6 7 8
 ```
 
-Rediscovered by Nikolay Valentinovich Repnitskiy - ~December 2019
+<sup>Rediscovered by Nikolay Valentinovich Repnitskiy - ~December 2019</sup>
 
 <br>
 
