@@ -3,7 +3,8 @@
 No key is rejected when decrypting a One-time pad (perfect secrecy).
 Complete brute-force cannot determine the usefulness of any key,
 and you'll end up with all possible plaintext that can ever be written.
-But you can step down from the One-time pad by transforming the key.
+But you can step down from the One-time pad by transforming the key,
+instead of throwing it away.
 Now some keys can be rejected.
 And because you're so close to perfect secrecy,
 it has to be difficult to find the key,
