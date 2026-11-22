@@ -5,7 +5,8 @@
   You end up with all the plaintext that can ever be written.
 
 * Step down from the One-time pad by rolling the key instead of
-  throwing it away. You're forced to brute-force key transformations
+  throwing it away (the key becomes a rolling-code).
+  You're forced to brute-force key transformations
   that would lead to making sense of the data. You're forced to,
   because there are no shortcuts to knowing which transformation
   was used. And a cipher can have identifying data and/or properties
