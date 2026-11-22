@@ -9,6 +9,8 @@
   it has to be difficult to find the key.
   You're forced to brute-force key transformations
   that would lead to making sense of the data.
+  You're forced to. Because there are no shortcuts
+  to knowing which transformation was used.
   This proof describes a problem classifiable under NP
   (easily verifiable solutions) but not under P
   (easily discoverable solutions) therefore P != NP.
