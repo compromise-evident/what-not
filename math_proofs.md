@@ -1,4 +1,4 @@
-### The proof of the existence of decryption difficulty
+### Decryption difficulty proof
 
 * No key is rejected when decrypting a One-time pad (perfect secrecy).
   Complete brute-force cannot determine the usefulness of any key.
@@ -14,11 +14,11 @@
   (easily verifiable solutions) but not under P
   (easily discoverable solutions) therefore P != NP.
 
-Nikolay Valentinovich Repnitskiy 2020_02_21
+Nikolay Valentinovich Repnitskiy February 21 2020
 
 <br>
 
-### The proof of the existence of perfect secrecy
+### Perfect secrecy proof
 
 ```text
              key  523872537481693327099241416092                  0 1 2 3 4 5 6 7 8 9
