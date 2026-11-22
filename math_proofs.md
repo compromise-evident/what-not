@@ -9,7 +9,7 @@
   throwing it away (the key becomes a rolling-code).
   You're forced to brute-force key transformations
   that would lead to making sense of the data.
-  Yet still no key is rejected as there are no algebraic traps.
+  Yet still there are no algebraic traps because no key is rejected.
   And a cipher can have identifying properties and/or data
   in its plaintext.
   This proof describes a problem classifiable under NP
