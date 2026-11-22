@@ -1,9 +1,10 @@
 ### The case for the existence of decryption difficulty
 
-No key is rejected by the One-time pad (perfect secrecy).
+No key is rejected upon decryption by the One-time pad (perfect secrecy).
+Complete brute-force cannot determine the usefulness of any key.
 But you can step down from the One-time pad by reusing
 and/or transforming the key. Now some keys can be rejected.
-And because you're so close to to perfect secrecy,
+And because you're so close to perfect secrecy,
 it has to be difficult to find the key.
 This proof describes a problem classifiable under NP
 (easily verifiable solutions) but not under P
