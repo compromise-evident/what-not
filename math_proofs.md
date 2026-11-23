@@ -35,7 +35,7 @@ the plaintext could be any of 10 digits (2 appears 10 times in the table).
 No key is rejected when decrypting a One-time pad (perfect secrecy).
 Complete brute-force gives you all the plaintext that can ever be written.
 And you can't know which was intended even though you have it.
-Only the key owners know that 7 was intended.
+Only the key owners know that 7 was intended for that byte.
 Extend the table to 255 for files.
 
 <sup>Rediscovered by Nikolay Valentinovich Repnitskiy - ~December 2019</sup>
