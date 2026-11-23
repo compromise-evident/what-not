@@ -9,6 +9,9 @@
   You're forced to brute-force key transformations that would lead to making sense of the data.
   A cipher can have identifying properties and/or data in its plaintext.
 
+* This proof describes a problem classifiable under NP (easily verifiable solutions)
+  but not under P (easily discoverable solutions) therefore P != NP.
+
 <sup>Nikolay Valentinovich Repnitskiy - February 21 2020</sup>
 
 <br>
