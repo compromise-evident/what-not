@@ -3,13 +3,13 @@
 * No key is rejected when decrypting a One-time pad (perfect secrecy).
   Complete brute-force cannot determine the usefulness of any key.
   You end up with all the plaintext that can ever be written.
-  And there are no algebraic traps because no key is rejected.
+  And there are no algebraic constraints because no key is rejected.
 
 * Step down from the One-time pad by rolling the key instead of
   throwing it away (the key becomes a rolling-code).
   You're forced to brute-force key transformations
   that would lead to making sense of the data.
-  Yet still there are no algebraic traps because no key is rejected.
+  Yet still there are no algebraic constraints because no key is rejected.
   And a cipher can have identifying properties and/or data
   in its plaintext.
   This proof describes a problem classifiable under NP
