@@ -5,6 +5,7 @@ char github_username[] = "compromise-evident";
 
 /*Run it: "apt install g++ geany". Open the .cpp in Geany. Hit F9 once. F5 to run.
 
+Checks if your github repos are the same as your local github folder (your backup).
 Even if you don't need this program,  you should have a folder named "github".
 It should contain folders with names matching your github repo names. And those
 folders should be structured just like your github repos. Edit your files locally,
