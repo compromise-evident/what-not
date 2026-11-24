@@ -36,6 +36,7 @@ int main()
 	std::sort(local_repo_names.begin(), local_repo_names.end()); //Sorts list of folders in RAM.
 	
 	//Compares local repos to github repos.
+	bool sanity = true;
 	std::cout << "\n";
 	std::filesystem::remove_all("downloaded_repos");
 	std::filesystem::create_directories("downloaded_repos");
@@ -43,7 +44,7 @@ int main()
 	{	//Downloads a repo as main.zip.
 		std::string wget = "wget -q https://github.com/"; wget += github_username; wget += "/"; wget += local_repo_names[a]; wget += "/archive/refs/heads/main.zip"; //wget -q https://github.com/username/repo_name/archive/refs/heads/main.zip
 		std::system(wget.c_str());
-		if(!std::filesystem::exists("main.zip")) {std::cout << "download failed: " << local_repo_names[a] << "\n"; continue;}
+		if(!std::filesystem::exists("main.zip")) {std::cout << "download failed: " << local_repo_names[a] << "\n"; sanity = false; continue;}
 		
 		//Unzips main.zip to folder "downloaded_repos". Looks like "my_repo-main".
 		std::system("unzip -q main.zip -d downloaded_repos > /dev/null 2>&1");
@@ -64,8 +65,11 @@ int main()
 		std::string file_line; std::getline(in_stream, file_line);
 		in_stream.close();
 		
-		if(file_line == "same") {std::cout << "           same: " << local_repo_names[a] << "\n";}
-		else                    {std::cout << "      different: " << local_repo_names[a] << "\n";}
+		if(file_line == "same") {std::cout << "           same: " << local_repo_names[a] << "\n";                }
+		else                    {std::cout << "      different: " << local_repo_names[a] << "\n"; sanity = false;}
 		std::filesystem::remove_all("sameness");
 	}
+	
+	if(sanity == true) {std::cout << "\nAll are the same.\n";  }
+	else               {std::cout << "\nSOME ARE DIFFERENT!\n";}
 }
