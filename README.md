@@ -21,6 +21,12 @@
 
 <br>
 
+### sameness.cpp should be the second tab in your editor
+
+It checks if your github repos are the same as your local github folder (your backup).
+
+<br>
+
 ### Photo of a suspicious screenshot
 
 <p align="center">
